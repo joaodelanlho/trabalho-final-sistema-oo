@@ -1,0 +1,84 @@
+TRABALHO FINAL: SISTEMA ORIENTADO A OBJETOS
+
+Nome do aluno: Joao Marcos Delanlho
+Tema: Lanchonete
+Linguagem: Python
+Arquivo principal: main.py
+
+1. COMO EXECUTAR
+
+Requisito: Python 3 instalado no computador.
+
+Passos:
+1) Extraia o arquivo ZIP.
+2) Abra a pasta do trabalho.
+3) Abra o terminal nessa pasta.
+4) Execute o comando:
+
+   python main.py
+
+Em alguns computadores, o comando pode ser:
+
+   python3 main.py
+
+O programa funciona pelo terminal. Não utiliza interface gráfica nem bibliotecas externas.
+
+2. COMO UTILIZAR
+
+O programa começa com três itens cadastrados:
+- X-Burger (lanche)
+- X-Salada (lanche)
+- Refrigerante (bebida)
+
+No menu, é possível cadastrar, listar, buscar e remover itens, calcular os preços,
+aplicar desconto e testar a validação do preço.
+
+3. MAPA DOS REQUISITOS
+
+R1 - Classe abstrata:
+Classe ItemCardapio, em main.py. Possui atributos comuns, construtor,
+método abstrato calcular_preco() e método normal mostrar_preco_final()
+que utiliza o método abstrato.
+
+R2 - Herança:
+Classes Lanche e Bebida, em main.py. As duas herdam de ItemCardapio,
+chamam super().__init__() e implementam calcular_preco() de formas diferentes.
+Cada uma possui atributo próprio.
+
+R3 - Encapsulamento:
+Os atributos das classes são privados (prefixo __). Existem getters.
+O método set_preco() valida e não permite preço negativo.
+
+R4 - Interface:
+Classe abstrata Promocional, em main.py, usada como interface.
+As classes Lanche e Bebida implementam aplicar_desconto().
+
+R5 - Polimorfismo:
+Função executar_acao_sistema(), em main.py. Percorre a lista de objetos
+e chama mostrar_preco_final(), que utiliza o cálculo implementado por cada tipo.
+
+R6 - Lista de objetos:
+Lista cardapio, em main.py. O programa permite cadastrar, listar, buscar por
+nome ou código e remover. A lista inicia com três objetos.
+
+R7 - Menu no terminal:
+Função menu(), em main.py. O menu se repete até a opção 0 e informa quando
+uma opção inválida é digitada.
+
+R8 - Texto do objeto:
+Método __str__() sobrescrito nas classes Lanche e Bebida, em main.py.
+A função listar_itens() usa esse método ao executar print(item).
+
+4. REFLEXÃO
+
+Se este sistema fosse feito no estilo imperativo, eu teria que utilizar várias
+variáveis e funções separadas para guardar e manipular os dados de lanches e
+bebidas. Isso poderia deixar o código maior e mais difícil de organizar,
+principalmente quando fosse necessário acrescentar novos tipos de produtos.
+Com orientação a objetos, consegui agrupar os dados e comportamentos em classes,
+reaproveitar código por meio da herança e proteger os atributos com encapsulamento.
+Também usei polimorfismo para chamar o mesmo método em tipos diferentes de objetos.
+Assim, o programa ficou mais organizado, fácil de entender, manter e expandir.
+
+
+
